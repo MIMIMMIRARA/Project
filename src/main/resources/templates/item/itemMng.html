@@ -70,20 +70,18 @@
 
       <ul class="pagination justify-content-center">
         <li class="page-item" th:classappend="${items.first}?'disabled'">
-          <a th:onclick="'javascript:page(' + ${items.number - 1} + ')'" aria-label="Previous" class="page-link">
-            <span aria-hidden="true">Previous</span>
+          <a th:onclick="'javascript:page(' + ${items.number - 1} + ')'" aria-label='Previous' class="page-link">
+            <span aria-hidden='true'>Previous</span>
           </a>
         </li>
 
-        <!-- 여기가 문제 1,5 를 start , end로 변경해야됨 현재 하드코딩 상태.-->
-        <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}" th:classappend="${items.number eq page -1}?'active':''">
-          <a th:onclick="'javascript:page(' + ${page - 1} + ')'}"
-              th:inline="text" class="page-link">[[${page}]]</a>
+        <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}" th:classappend="${items.number eq page-1}?'active':''">
+          <a th:onclick="'javascript:page(' + ${page - 1} + ')'" th:inline="text" class="page-link">[[${page}]]</a>
         </li>
 
         <li class="page-item" th:classappend="${items.last}?'disabled'">
-          <a th:onclick="'javascript:page(' + ${items.number + 1} + ')'" aria-label="Next" class="page-link">
-            <span aria-hidden="true">Next</span>
+          <a th:onclick="'javascript:page(' + ${items.number + 1} + ')'" aria-label='Next' class="page-link">
+            <span aria-hidden='true'>Next</span>
           </a>
         </li>
       </ul>
