@@ -30,10 +30,10 @@ public class ItemController {
     @GetMapping(value = "/admin/item/new")
     public String itemForm(Model model) {
         model.addAttribute("itemFormDto", new ItemFormDto());
-        return "/item/itemForm";
+        return "item/itemForm";
     }
 
-    @PostMapping(value = "admin/item/new")
+    @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ItemFormDto itemFormDto, BindingResult
                           bindingResult, Model model, @RequestParam("itemImgFile") List<MultipartFile>
                           itemImgFileList) {
@@ -57,7 +57,7 @@ public class ItemController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "admin/item/{itemId}")
+    @GetMapping(value = "/admin/item/{itemId}")
     public String itemDtl(@PathVariable("itemId") Long itemId, Model model) {
 
         try {
